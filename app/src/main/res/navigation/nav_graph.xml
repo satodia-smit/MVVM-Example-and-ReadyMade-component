@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/fragmentSimpleRow">
+    app:startDestination="@id/stickyHeaderFragment">
     <fragment
         android:id="@+id/fragmentOne"
         android:name="com.hyperelement.mvvmdemo.ui.demobasicfragment.fragmentone.FragmentOne"
@@ -38,8 +38,12 @@
         android:label="CarouselRVDemoFragment"
         tools:layout="@layout/fragment_carousel_rv" />
     <fragment
-        android:id="@+id/fragmentSimpleRow"
+        android:id="@+id/stickyHeaderFragment"
+        android:name="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.header.stickyheader.StickyHeaderFragment"
+        android:label="StickyHeaderFragment" />
+    <fragment
+        android:id="@+id/loadMoreFragment"
         android:name="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.loadmore.LoadMoreFragment"
-        android:label="FragmentSimpleRow"
-        tools:layout="@layout/fragment_load_more" />
+        android:label="LoadMoreFragment" />
+
 </navigation>

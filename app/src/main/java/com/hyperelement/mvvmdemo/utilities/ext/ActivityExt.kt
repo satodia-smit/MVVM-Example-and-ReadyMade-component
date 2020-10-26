@@ -10,5 +10,5 @@ import android.os.Handler
  inline fun runDelayed(crossinline action: () -> Unit) {
      Handler().postDelayed({
          action.invoke()
-     }, 800)
+     }, 1500)
  }
