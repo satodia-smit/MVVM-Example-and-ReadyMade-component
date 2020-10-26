@@ -22,20 +22,6 @@ class RxJavaExample1Fragment :
         super.onViewCreated(view, savedInstanceState)
         getSpecificBinding<FragmentRxJavaExample1Binding>()?.viewModel = viewModel
 
-        val taskObservable: Observable<Task> =
-            fromIterable(viewModel.loadData())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-
-        taskObservable.subscribe(object :
-            Observer<Task?> {
-            override fun onSubscribe(d: Disposable?) {}
-            override fun onError(e: Throwable?) {}
-            override fun onComplete() {}
-            override fun onNext(t: Task?) {
-                Log.d(TAG, "onNext: : " + t?.mDescription)
-            }
-        })
 
 
     }
