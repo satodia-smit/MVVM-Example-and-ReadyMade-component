@@ -113,5 +113,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation 'com.google.firebase:firebase-messaging:20.3.0'
 
+    //RX JAVA & ANDROID DEPENDENCY
+    implementation "io.reactivex.rxjava3:rxjava:3.0.7"
+    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
+
+
 
 }
