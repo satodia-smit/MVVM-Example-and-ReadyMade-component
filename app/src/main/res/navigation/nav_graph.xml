@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/stickyHeaderFragment">
+    app:startDestination="@id/multiViewTypeFragment">
     <fragment
         android:id="@+id/fragmentOne"
         android:name="com.hyperelement.mvvmdemo.ui.demobasicfragment.fragmentone.FragmentOne"
@@ -45,5 +45,25 @@
         android:id="@+id/loadMoreFragment"
         android:name="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.loadmore.LoadMoreFragment"
         android:label="LoadMoreFragment" />
+    <fragment
+        android:id="@+id/simpleFragment"
+        android:name="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.simple.SimpleFragment"
+        android:label="SimpleFragment"
+        tools:layout="@layout/fragment_simple" />
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.filter.FilterFragment"
+        android:label="FilterFragment"
+        tools:layout="@layout/fragment_simple" />
+    <fragment
+        android:id="@+id/swipeRemoveFragment"
+        android:name="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.swiperemove.SwipeRemoveFragment"
+        android:label="SwipeRemoveFragment"
+        tools:layout="@layout/fragment_simple" />
+    <fragment
+        android:id="@+id/multiViewTypeFragment"
+        android:name="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.multiViewType.MultiViewTypeFragment"
+        android:label="MultiViewTypeFragment"
+        tools:layout="@layout/fragment_simple" />
 
 </navigation>

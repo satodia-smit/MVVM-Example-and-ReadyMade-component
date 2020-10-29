@@ -44,7 +44,11 @@ class StickyHeaderFragment :
 //        )
         val mContinentArray = mutableListOf<String>()
         mContinentArray.add("Header")
-        for (i in 1..100) {
+        for (i in 1..40) {
+            mContinentArray.add("Item $i")
+        }
+        mContinentArray.add("Header1")
+        for (i in 1..40) {
             mContinentArray.add("Item $i")
         }
 
@@ -62,7 +66,7 @@ class StickyHeaderFragment :
 
         val items = mContinentArray.mapIndexed { index, item ->
             when (index) {
-                0 -> arrayOf(Continent(item))
+                0,41 -> arrayOf(Continent(item))
                 else -> arrayOf(Country(item))
             }
         }.toTypedArray().flatten()
@@ -71,9 +75,8 @@ class StickyHeaderFragment :
             .items(items)
             .map(Continent::class, StickyHeaderParentVH::class)
             .map(Country::class, StickyHeaderChildVH::class)
-            .setLayoutManager(layoutManager)
             .add(StickyHeaderItemDecorationExtension(
-                headerItemType = StickyHeaderParentVH::class
+                headerItemType = Continent::class
             ) { motionEvent, itemPosition ->
                 if (motionEvent.action == MotionEvent.ACTION_UP) {
                     context?.showToast("Header $itemPosition clicked")

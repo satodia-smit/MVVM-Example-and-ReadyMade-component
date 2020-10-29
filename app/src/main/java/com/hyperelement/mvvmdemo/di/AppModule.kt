@@ -7,6 +7,7 @@ import com.hyperelement.mvvmdemo.ui.demobasicfragment.fragmenttwo.FragmentTwoVie
 import com.hyperelement.mvvmdemo.ui.demorecyclerview.carousel.CarouselRVDemoViewModel
 import com.hyperelement.mvvmdemo.ui.demorecyclerview.simple.SimpleRVDemoViewModel
 import com.hyperelement.mvvmdemo.ui.demorecyclerview.simplerow.SimpleRowRVDemoViewModel
+import com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.GenericVM
 import com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.header.stickyheader.StickyHeaderVM
 import com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.loadmore.LoadMoreVM
 import org.koin.android.ext.koin.androidContext
@@ -64,6 +65,12 @@ val appModule = module {
         )
     }
 
+    viewModel {
+        GenericVM(
+            get()
+        )
+    }
+
     // Inject Repository
     single { FragmentOneRepository(androidContext()) }
     single { FragmentTwoRepository(androidContext()) }
@@ -73,5 +80,7 @@ val appModule = module {
     single { SimpleRowRVDemoRepository(androidContext()) }
     single { StickyHeaderRepository(androidContext()) }
     single { LoadMoreRepository(androidContext()) }
+    single { SimpleRepository(androidContext()) }
+    single { GenericRepository(androidContext()) }
 
 }

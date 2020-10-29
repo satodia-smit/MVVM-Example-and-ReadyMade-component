@@ -16,8 +16,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/black">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -31,6 +31,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5asdp"
                 android:text="@{dataItem.name}"
+                android:textColor="@android:color/white"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.cardview.widget.CardView>

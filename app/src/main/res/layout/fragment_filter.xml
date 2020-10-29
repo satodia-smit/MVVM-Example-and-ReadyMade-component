@@ -7,22 +7,30 @@
 
         <variable
             name="viewModel"
-            type="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.loadmore.LoadMoreVM" />
+            type="com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.GenericVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvEmployee"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/fragment_simple_row_rv" />
+            app:layout_constraintTop_toBottomOf="@+id/svEmployee" />
+
+        <SearchView
+            android:id="@+id/svEmployee"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
