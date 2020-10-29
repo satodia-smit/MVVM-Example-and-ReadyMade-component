@@ -1,6 +1,7 @@
 package com.hyperelement.mvvmdemo
 
 import android.app.Application
+import com.airbnb.epoxy.Carousel
 import com.hyperelement.mvvmdemo.di.appModule
 import com.hyperelement.mvvmdemo.di.networkModule
 import com.hyperelement.mvvmdemo.di.retrofitModule
@@ -22,6 +23,7 @@ class App : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+        Carousel.setDefaultGlobalSnapHelperFactory(null)
 
         startKoin {
             androidContext(this@App)
