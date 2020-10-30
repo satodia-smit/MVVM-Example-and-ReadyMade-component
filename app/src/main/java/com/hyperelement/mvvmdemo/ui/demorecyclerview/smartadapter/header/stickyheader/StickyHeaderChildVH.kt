@@ -12,7 +12,8 @@ import smartadapter.viewevent.viewholder.OnItemClickEventListener
 import smartadapter.viewevent.viewholder.OnItemLongClickEventListener
 import smartadapter.viewholder.SmartViewHolder
 
-class StickyHeaderChildVH(var parentView: ViewGroup) : SmartViewHolder<Country>(
+open class StickyHeaderChildVH(parentView: ViewGroup) :
+    SmartViewHolder<Country>(
     parentView.inflate<ItemStickyHeaderChildBinding>(R.layout.item_sticky_header_child).root
 ),
     OnItemClickEventListener,

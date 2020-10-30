@@ -1,15 +1,12 @@
 package com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.header.stickyheader
 
 import android.os.Bundle
-import android.view.MotionEvent
 import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.hyperelement.mvvmdemo.R
 import com.hyperelement.mvvmdemo.arch.BaseFragment
 import com.hyperelement.mvvmdemo.data.datasources.models.generic.Continent
 import com.hyperelement.mvvmdemo.data.datasources.models.generic.Country
 import com.hyperelement.mvvmdemo.databinding.FragmentStickyHeaderBinding
-import com.hyperelement.mvvmdemo.utilities.ext.showToast
 import kotlinx.android.synthetic.main.fragment_sticky_header.*
 import smartadapter.SmartRecyclerAdapter
 import smartadapter.stickyheader.StickyHeaderItemDecorationExtension
@@ -20,14 +17,11 @@ class StickyHeaderFragment :
         StickyHeaderVM::class
     ) {
 
-    private var adapter: SmartRecyclerAdapter? = null
+    private lateinit var adapter: SmartRecyclerAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getSpecificBinding<FragmentStickyHeaderBinding>()?.viewModel = viewModel
-
-        val layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
 //        val mContinentArray = arrayListOf<Continent>()
 //        mContinentArray.add(
@@ -66,22 +60,19 @@ class StickyHeaderFragment :
 
         val items = mContinentArray.mapIndexed { index, item ->
             when (index) {
-                0,41 -> arrayOf(Continent(item))
+                0, 41 -> arrayOf(Continent(item))
                 else -> arrayOf(Country(item))
             }
         }.toTypedArray().flatten()
 
-        adapter = SmartRecyclerAdapter
-            .items(items)
+        adapter = SmartRecyclerAdapter.empty()
             .map(Continent::class, StickyHeaderParentVH::class)
             .map(Country::class, StickyHeaderChildVH::class)
             .add(StickyHeaderItemDecorationExtension(
                 headerItemType = Continent::class
-            ) { motionEvent, itemPosition ->
-                if (motionEvent.action == MotionEvent.ACTION_UP) {
-                    context?.showToast("Header $itemPosition clicked")
-                }
-            })
+            ))
             .into(rvContinent)
+
+        adapter.setItems(items.toMutableList())
     }
 }
