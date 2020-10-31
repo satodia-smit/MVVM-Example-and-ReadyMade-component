@@ -1,7 +1,7 @@
 package com.hyperelement.mvvmdemo.ui.demorecyclerview.smartadapter.header.stickyheader
 
 import androidx.lifecycle.MutableLiveData
-import com.hyperelement.mvvmdemo.data.datasources.models.generic.EmployeeEntity
+import com.hyperelement.mvvmdemo.data.datasources.models.generic.ContinentCountry
 import com.hyperelement.mvvmdemo.data.repository.StickyHeaderRepository
 import com.hyperelement.mvvmdemo.utilities.RootViewModel
 import kotlinx.coroutines.Dispatchers
@@ -12,16 +12,16 @@ import timber.log.Timber
 class StickyHeaderVM(
     private val mRepository: StickyHeaderRepository
 ) : RootViewModel() {
-    val mEmployeeList = MutableLiveData<List<EmployeeEntity>>()
-    fun loadEmployeesFromStorage() {
+    val mContinentCountryList = MutableLiveData<List<ContinentCountry>>()
+    fun loadContinentCountry() {
         launch {
             try {
                 withContext(Dispatchers.IO) {
-                    val response = mRepository.getEmployee()
+                    val response = mRepository.getContinentCountry()
                     if (response.isEmpty()) {
-                        Timber.d("NO EMPLOYEES ARE AVAILABLE")
+                        Timber.d("NO CONTINENT ARE AVAILABLE")
                     } else {
-                        mEmployeeList.postValue(response)
+                        mContinentCountryList.postValue(response)
                     }
                 }
             } catch (exception: Exception) {
