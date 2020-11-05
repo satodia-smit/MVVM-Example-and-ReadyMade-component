@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/rxJavaExample1Fragment">
+    app:startDestination="@id/admobFragment">
     <fragment
         android:id="@+id/fragmentOne"
         android:name="com.hyperelement.mvvmdemo.ui.demobasicfragment.fragmentone.FragmentOne"
@@ -32,4 +32,8 @@
         android:name="com.hyperelement.mvvmdemo.ui.demorxjava.RxJavaExample1Fragment"
         android:label="RxJavaExample1Fragment"
         tools:layout="@layout/fragment_rx_java_example_1" />
+    <fragment
+        android:id="@+id/admobFragment"
+        android:name="com.hyperelement.mvvmdemo.ui.demoadmob.AdmobFragment"
+        android:label="AdmobFragment" />
 </navigation>

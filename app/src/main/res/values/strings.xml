@@ -3,5 +3,6 @@
     <string name="lbl_one">Fragment One</string>
     <string name="lbl_two">Fragment Two</string>
     <string name="lbl_three">Fragment Three</string>
+    <string name="lbl_admob">Admob Demo</string>
 
 </resources>

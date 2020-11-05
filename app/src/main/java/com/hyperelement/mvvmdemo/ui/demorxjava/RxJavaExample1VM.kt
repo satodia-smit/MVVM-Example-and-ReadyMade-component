@@ -31,7 +31,7 @@ class RxJavaExample1VM(
         taskObservable.subscribe(object :
             Observer<Task?> {
             override fun onSubscribe(d: Disposable?) {
-                mDisposable.add(d)
+//                mDisposable.add(d)
             }
 
             override fun onError(e: Throwable?) {}
