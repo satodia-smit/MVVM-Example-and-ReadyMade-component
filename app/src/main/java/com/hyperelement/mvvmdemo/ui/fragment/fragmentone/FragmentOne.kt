@@ -1,4 +1,4 @@
-package com.hyperelement.mvvmdemo.ui.demobasicfragment.fragmentone
+package com.hyperelement.mvvmdemo.ui.fragment.fragmentone
 
 import android.annotation.SuppressLint
 import android.os.Bundle

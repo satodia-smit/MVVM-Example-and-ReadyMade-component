@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.hyperelement.mvvmdemo.ui.demobasicfragment.fragmentone.FragmentOneViewModel" />
+            type="com.hyperelement.mvvmdemo.ui.fragment.fragmentone.FragmentOneViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,25 +16,12 @@
 
         <TextView
             android:id="@+id/txtA"
-            android:layout_width="@dimen/_50asdp"
-            android:layout_height="@dimen/_50asdp"
-            app:layout_constraintBottom_toTopOf="@+id/btnNavigateToB"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNavigateToB"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="@dimen/_5asdp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="Navigate To B"
-            android:onClick="@{(view) -> viewModel.navigateToFragmentB(view)}"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
