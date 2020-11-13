@@ -24,7 +24,6 @@ class SimpleFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         adapter = SmartRecyclerAdapter.empty()
             .map(EmployeeEntity::class, GenericVH::class)
             .add(OnClickEventListener {
