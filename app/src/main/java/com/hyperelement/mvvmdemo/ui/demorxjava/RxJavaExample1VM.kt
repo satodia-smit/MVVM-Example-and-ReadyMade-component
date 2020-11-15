@@ -10,6 +10,7 @@ import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 
 private const val TAG = "RxJavaExample1VM"
@@ -22,7 +23,11 @@ class RxJavaExample1VM(
 //      createOperator()
 //      justOperator()
 //      rangeOperator()
-        repeatOperator()
+//      repeatOperator()
+//      intervalOperator()
+//      timerOperator()
+        fromArrayOperator()
+//        fromIteratorOperator()
     }
 
     private fun createOperator() {
@@ -84,6 +89,70 @@ class RxJavaExample1VM(
             .subscribe {
                 Timber.d("OUTPUT $it")
             }
+    }
+
+    private fun intervalOperator() {
+        val intervalObservable = Observable
+            .interval(1, TimeUnit.SECONDS)
+            .subscribeOn(Schedulers.io())
+            .takeWhile { it < 5 }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : Observer<Long> {
+                override fun onComplete() {
+                }
+
+                override fun onSubscribe(d: Disposable?) {
+                }
+
+                override fun onNext(t: Long?) {
+                    Timber.d("OUTPUT IS $t")
+                }
+
+                override fun onError(e: Throwable?) {
+                }
+            })
+    }
+
+    private fun timerOperator() {
+        val mTimerObservable = Observable
+            .timer(3, TimeUnit.SECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                Timber.d("OUTPUT AFTER 3 SEC")
+
+            }
+    }
+
+    private fun fromArrayOperator() {
+    }
+    private fun fromCallableOperator(){
+
+    }
+
+    private fun fromIteratorOperator() {
+        val mFromIteratorOperator = Observable
+            .fromIterable(mutableListOf(1, 2, 3, 4, 5))
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+        mFromIteratorOperator.subscribe(object : Observer<Int> {
+            override fun onComplete() {
+            }
+
+            override fun onSubscribe(d: Disposable?) {
+            }
+
+            override fun onNext(t: Int?) {
+                Timber.d("OUTPUT IS $t")
+            }
+
+            override fun onError(e: Throwable?) {
+            }
+        })
+
+        /*mFromIteratorOperator.subscribe {
+             Timber.d("OUTPUT $it")
+         }*/
     }
 
     override fun onCleared() {
